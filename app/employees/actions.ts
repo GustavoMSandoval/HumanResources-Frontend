@@ -21,15 +21,15 @@ export async function createEmployee(formData: FormData) {
 
 export async function editEmployee(formData: FormData) {
 
+    const id = formData.get('id');
+
     const data = {
-        CPF: formData.get('cpf'),
-        name: formData.get('name'),
         email: formData.get('email'),
         salary: formData.get('salary')
     }
 
-    await fetch('http://localhost:8080/api/employees', {
-        method: 'POST',
+    await fetch(`http://localhost:8080/api/employees/${id}`, {
+        method: 'PUT',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(data),
     })
