@@ -7,16 +7,20 @@ export default function Home() {
 
   const [employees, setEmployees] = useState<Employee[]>([]);
 
-  useEffect(() => {
-    async function load() {
-      const res = await fetch('http://localhost:8080/api/employees', {
-        cache: 'no-store'
-      });
-      setEmployees(await res.json());
-    }
-
-    load();
-  }, []);
+  try {
+    useEffect(() => {
+      async function load() {
+        const res = await fetch('http://localhost:8080/api/employees', {
+          cache: 'no-store'
+        });
+        setEmployees(await res.json());
+      }
+  
+      load();
+    }, []);
+  } catch(e) {
+    console.log("Unable to fetch employees")
+  }
 
   async function handleDelete(id: number) {
 
