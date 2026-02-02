@@ -43,6 +43,7 @@ export default function Home() {
         <table className="table-auto border-spacing-4">
         <thead className="bg-gray-50 border-b-2 border-gray-100">
           <tr>
+            <th className="p-3 text-md font-semibold tracking-wide">Departamento</th>
             <th className="p-3 text-md font-semibold tracking-wide">CPF</th>
             <th className="p-3 text-md font-semibold tracking-wide">Email</th>
             <th className="p-3 text-md font-semibold tracking-wide">Nome</th>
@@ -53,6 +54,7 @@ export default function Home() {
         <tbody>
           {employees.map( (employee, id) => (
           <tr key={id} className="border-b border-gray-100">
+            <td className="p-3 text-md text-left">{employee.department}</td>
             <td className="p-3 text-md text-left">{employee.CPF}</td>
             <td className="p-3 text-md text-left">{employee.email}</td>
             <td className="p-3 text-md text-left">{employee.name}</td>
